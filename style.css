@@ -186,7 +186,7 @@ transition: transform 0.25s ease-out;
     }
 
     .hero-page-img{
-        max-width: 50%;
+        max-width: 25%;
         height: auto;
     }
     .simple-img{
