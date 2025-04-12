@@ -1,0 +1,11 @@
+reservation.html
+<form id="bookingForm" action="https://formspree.io/f/manevjbw" method="POST">
+  <input type="text" name="Voiture" value="Clio 4" readonly>
+  <input type="text" name="Nom" placeholder="Votre nom" required>
+  <input type="tel" name="Téléphone" placeholder="Téléphone" required>
+  <input type="date" name="Date de début" required>
+  <input type="date" name="Date de fin" required>
+  <button type="submit">Envoyer</button>
+</form>
+
+<p id="confirmationMessage" style="color: green; display: none;">Réservation envoyée avec succès !</p>

@@ -180,37 +180,67 @@ document.getElementById("closeModal").addEventListener("click", function () {
     document.getElementById("reservationModal").classList.remove("active");
 });
 
-// إرسال البيانات إلى واتساب عند الضغط على "Envoyer"
+
+
 document.getElementById("reservationForm").addEventListener("submit", function (e) {
     e.preventDefault();
-
+  
     const car = document.getElementById("carName").value;
     const name = document.getElementById("votre nom").value;
     const phone = document.getElementById("téléphone").value;
     const start = document.getElementById("dateDebut").value;
     const end = document.getElementById("dateFin").value;
-
-    // تكوين الرسالة
-    const message = `Bonjour, je souhaite réserver la voiture:`
-    `- Voiture: ${car}`
-    `- Nom: ${name}`
-   `- Téléphone: ${phone}`
-    `- Du: ${start}`
-    `- Au: ${end}`
-
-    // تكوين رابط 
+  
+    const message = `Bonjour, je souhaite réserver la voiture :
+  - Voiture: ${car}
+  - Nom: ${name}
+  - Téléphone: ${phone}
+  - Du: ${start}
+  - Au: ${end}`;
+  
     const whatsappNumber = "213774557656";
     const url = `https://api.whatsapp.com/send?phone=${whatsappNumber}&text=${encodeURIComponent(message)}`;
-
-    // فتح الرابط في نافذة جديدة
+  
     window.open(url, "_blank");
-document.getElementById("successMessage").style.display="block";
-setTimeout(() => {
-    document.getElementById("successMessage").style.display="none";
-}, 5000);
-
+  
+    // إظهار رسالة الشكر
+    const thankYou = document.getElementById("thankYouMessage");
+    thankYou.style.display = "block";
+    setTimeout(() => {
+      thankYou.style.display = "none";
+    }, 5000);
+  
     // إغلاق النافذة
     document.getElementById("reservationModal").classList.remove("active");
-});
+  });
 
 
+
+
+  const form = document.getElementById('bookingForm');
+  const message = document.getElementById('confirmationMessage');
+
+  form.addEventListener('submit', async function(e) {
+    e.preventDefault(); // يمنع تحديث الصفحة
+
+    const formData = new FormData(form);
+
+    try {
+      const response = await fetch(form.action, {
+        method: form.method,
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
+      });
+
+      if (response.ok) {
+        form.reset(); // إعادة تعيين النموذج
+        message.style.display = 'block'; // إظهار رسالة التأكيد
+      } else {
+        alert("Une erreur s'est produite. Veuillez réessayer.");
+      }
+    } catch (error) {
+      alert("Erreur réseau. Vérifiez votre connexion.");
+    }
+  });
