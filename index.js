@@ -189,23 +189,25 @@ document.getElementById("reservationForm").addEventListener("submit", function (
     const phone = document.getElementById("téléphone").value;
     const start = document.getElementById("dateDebut").value;
     const end = document.getElementById("dateFin").value;
-    const phoneNumber = "213774557656"; // رقم واتسا"
 
     // تكوين الرسالة
     const message = `Bonjour, je souhaite réserver la voiture:`
-    - Voiture: ${car}
-    - Nom: ${name}
-    - Téléphone: ${phone}
-    - Du: ${start}
-    - Au: ${end}
+    `- Voiture: ${car}`
+    `- Nom: ${name}`
+   `- Téléphone: ${phone}`
+    `- Du: ${start}`
+    `- Au: ${end}`
 
     // تكوين رابط 
     const whatsappNumber = "213774557656";
-    const url = `https://api.whatsapp.com/send/?phone=213774557656&text&type=phone_number&app_absent=0&wame_ctl=1`;
+    const url = `https://api.whatsapp.com/send?phone=${whatsappNumber}&text=${encodeURIComponent(message)}`;
 
     // فتح الرابط في نافذة جديدة
-    console.log(url);
     window.open(url, "_blank");
+document.getElementById("successMessage").style.display="block";
+setTimeout(() => {
+    document.getElementById("successMessage").style.display="none";
+}, 5000);
 
     // إغلاق النافذة
     document.getElementById("reservationModal").classList.remove("active");
