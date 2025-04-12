@@ -188,7 +188,7 @@ document.getElementById("reservationForm").addEventListener("submit", function (
     const car = document.getElementById("carName").value;
     const name = document.getElementById("votre nom").value;
     const phone = document.getElementById("téléphone").value;
-    const start = document.getElementById("dateDebut").value;
+    const start = document.getElementById("dateDébut").value;
     const end = document.getElementById("dateFin").value;
   
     const message = `Bonjour, je souhaite réserver la voiture :
@@ -244,3 +244,76 @@ document.getElementById("reservationForm").addEventListener("submit", function (
       alert("Erreur réseau. Vérifiez votre connexion.");
     }
   });
+
+
+
+
+
+
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const reserverButtons = document.querySelectorAll('.reserver-btn');
+    const modal = document.getElementById('reservationModal');
+    const closeModal = document.querySelector('.close');
+    const carNameInput = document.getElementById('carNameInput');
+  
+    reserverButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const carName = btn.getAttribute('data-car'); // نأخذ اسم السيارة من الزر
+        carNameInput.value = carName;
+        modal.style.display = 'block';
+      });
+    });
+  
+    closeModal.addEventListener('click', () => {
+      modal.style.display = 'none';
+    });
+  
+    window.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        modal.style.display = 'none';
+      }
+    });
+  });
+
+
+
+
+
+
+
+  const urlParams = new URLSearchParams(window.location.search);
+    const voiture = urlParams.get('voiture');
+    if (voiture) {
+      document.querySelector('input[name="Voiture"]').value = voiture;
+    }
+  
+  
+
+
+    document.querySelectorAll('.car-images-slider').forEach(slider => {
+      const images = slider.querySelectorAll('.car-img');
+      const prevBtn = slider.querySelector('.prev');
+      const nextBtn = slider.querySelector('.next');
+      let index = 0;
+  
+      function showImage(i) {
+        images.forEach(img => img.classList.remove('active'));
+        images[i].classList.add('active');
+      }
+  
+      prevBtn.addEventListener('click', () => {
+        index = (index - 1 + images.length) % images.length;
+        showImage(index);
+      });
+  
+      nextBtn.addEventListener('click', () => {
+        index = (index + 1) % images.length;
+        showImage(index);
+      });
+
+    });
+
+
+
+
