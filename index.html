@@ -1,6 +1,6 @@
 <!DOCTYPE html> <html lang="en">
 <head>
-
+    <link rel="stylesheet" href="style.css">
 <meta charset="UTF-8" />
 <!-- use for responsiveness -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -22,19 +22,29 @@ referrerpolicy="no-referrer"
 <body>
 <!-- Navbar -->
 <nav>
-<a href="index.html" class="brand" >
-<h1>MILOUDI<b class="accent">AUTO</b></h1>
-</a>
-<div class="menu">
-<div class="btn">
-<i class="fas fa-times close-btn"></i>
-</div>
-<a href="index.html">CARS</a>
-<a href="index.html#about">ABOUT</a>
-</div>
+    <nav class="navbar">
+       
+        <!-- الزر الخاص بفتح القائمة في الهاتف -->
+        <i class="fas fa-bars menu-btn" onclick="toggleMenu()"></i>
+        <a href="index.html" class="brand" >
+            <h1>MILOUDI<b class="accent">AUTO</b></h1>
+            </a>
+        <!-- القائمة نفسها -->
+        <div class="menu" id="menu">
+          <i class="fas fa-times close-btn" onclick="toggleMenu()"></i>
+          <a href="cars.html">VOITURE</a>
+          <a href="index.html#about">ABOUT</a>
+        </div>
+      </nav>
 
+<body>
+    <!-- Header -->
+  <header class="main-header">
+  </header>
+      <!-- باقي محتوى الصفحة -->
+    </body>
 <button class="btn-2" onclick="window.location.href='contact.html'">
-(  0550645958 / 0664651949  )
+    (  0550645958 / 0664651949  )
 </button>
 <div class="btn">
 <i class="fas fa-bars menu-btn"></i>
@@ -51,15 +61,18 @@ referrerpolicy="no-referrer"
 </button>
 <b class="zaki">Louer une voiture facilement et rapidement avec MiloudiAuto.</b>
 <b class="adem"> proposons une large gamme de voitures de location adaptées à vos besoins, que vous organisiez un week-end ou un voyage d'affaires.</b>
-<button class="btn-2 btn-hero" onclick="window.location.href='contact.html'">
+<button class="btn-2 btn-hero" onclick="window.location.href='cars.html'">
 
 Commencer
 </button>
+<a href="https://www.facebook.com/share/16UtYCqvx8/?mibextid=wwXIfr" target="_blank" class="social-btn facebook">
+    <i class="fab fa-facebook-f"></i> Miloudi Auto
+  </a>
+  
+  <a href="https://www.instagram.com/miloudi_auto?igsh=MTVxenVvb2ptZGZsNg==" target="_blank" class="social-btn instagram">
+    <i class="fab fa-instagram"></i> Miloudi Auto
+  </a>
 
-<div class="download-buttons">
-<img src="C2463D27-AF6A-4690-B849-6D36489B3BA8.jpg" class="simple-img" alt="img" />
-<img src="A029B8DE-B362-4AA2-9605-65568FA070FB.jpg" class="smp-img" alt="img" />
-</div>
 </div>
 <img src="IMG_7673.JPG" class="hero-page-img" alt="img" />
 </div>
@@ -107,5 +120,15 @@ Commencer
 </div>
 </section >
 <!-- About Section End -->
+
+<!-- زر واتساب ثابت -->
+<a href="https://wa.me/0664651949" class="whatsapp-button" target="_blank" title="Contactez-nous sur WhatsApp">
+    <img src="IMG_7735.WEBP" alt="WhatsApp">
+  </a>
+  
+
+
+
+  
 </body>
 </html>
